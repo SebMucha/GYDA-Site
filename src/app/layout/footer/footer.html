@@ -1,0 +1,23 @@
+<div class="container footer__inner">
+  <h2>Connect with us</h2>
+  <p>Contact us and learn more about our organization</p>
+
+  <div class="socials">
+    <a [href]="links.facebook" target="_blank" rel="noopener noreferrer" aria-label="GYDA on Facebook">
+      <img src="assets/images/Facebook icon.png" alt="" width="30" height="30" loading="lazy" />
+    </a>
+    <a [href]="links.instagram" target="_blank" rel="noopener noreferrer" aria-label="GYDA on Instagram">
+      <img src="assets/images/Instagram Icon.png" alt="" width="30" height="30" loading="lazy" />
+    </a>
+  </div>
+
+  <app-contact-form class="footer__form" idPrefix="footer" variant="compact" submitLabel="Submit message" />
+
+  <p class="footer__meta">
+    <a [href]="'mailto:' + links.email">{{ links.email }}</a>
+    <span aria-hidden="true">·</span>
+    <span>{{ links.address }}</span>
+  </p>
+
+  <p class="footer__copy">© {{ year }} Georgian Youth Development Association (GYDA). All rights reserved.</p>
+</div>

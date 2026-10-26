@@ -1,0 +1,64 @@
+<section id="mission" class="section section--primary mission" aria-labelledby="mission-title">
+  <div class="container">
+    <header class="section-head" appReveal>
+      <h2 id="mission-title">Our Mission</h2>
+      <p>Four values guide every project we run.</p>
+    </header>
+
+    <ul class="mission__grid">
+      @for (value of values; track value.title; let i = $index) {
+        <li class="card mission__card" [appReveal]="i * 90">
+          <span class="mission__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              @switch (value.icon) {
+                @case ('people') {
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                }
+                @case ('globe') {
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M2 12h20" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                }
+                @case ('heart') {
+                  <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                }
+                @case ('leaf') {
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+                }
+              }
+            </svg>
+          </span>
+          <h3>{{ value.title }}</h3>
+          <p>{{ value.text }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</section>
+
+<section class="founded" aria-label="About GYDA">
+  <img
+    class="founded__bg"
+    src="assets/images/Main page background second pic.jpg"
+    alt=""
+    width="2400"
+    height="912"
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="container founded__content">
+    <p class="founded__statement" appReveal>
+      Georgian Youth Development Association was founded to make active citizenship accessible,
+      engaging and practical.
+    </p>
+    <p class="founded__text" appReveal="120">
+      We empower young people through non-formal education to develop interpersonal skills and
+      social competences. Our goal is to foster European values, gender equality, and successful
+      integration into the international community.
+    </p>
+  </div>
+</section>

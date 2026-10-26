@@ -1,0 +1,146 @@
+:host {
+  display: block;
+}
+
+.contact {
+  position: relative;
+  padding: 88px 0 96px;
+  overflow: hidden;
+  color: var(--color-white);
+  isolation: isolate;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgb(32 30 64 / 0.82), rgb(44 42 86 / 0.78));
+  }
+
+  .section-head {
+    margin-bottom: 36px;
+
+    h2 {
+      color: var(--color-white);
+    }
+  }
+}
+
+.contact__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+.glass {
+  border: 1px solid rgb(255 255 255 / 0.18);
+  border-radius: var(--radius);
+  background: rgb(255 255 255 / 0.07);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.contact__form-card {
+  padding: 28px;
+}
+
+.contact__side {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact__map {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.contact__map-link {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: var(--color-white);
+  color: var(--color-indigo);
+  box-shadow: var(--shadow-sm);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s var(--ease);
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.contact__info {
+  flex: 1;
+  padding: 24px;
+
+  h3 {
+    color: var(--color-white);
+    font-size: 1.125rem;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    gap: 10px;
+    font-size: 0.875rem;
+
+    svg {
+      flex-shrink: 0;
+      margin-top: 3px;
+      opacity: 0.85;
+    }
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.contact__socials {
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+@media (max-width: 820px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+  }
+}

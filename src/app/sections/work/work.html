@@ -1,0 +1,45 @@
+<section id="work" class="section section--primary work" aria-labelledby="work-title">
+  <div class="container">
+    <header class="section-head work__head" appReveal>
+      <h2 id="work-title">How We Work</h2>
+      <p>
+        We combine non-formal and informal education with hands-on experiences to make active
+        citizenship tangible and exciting. Our programs bridge theory and practice, giving
+        participants the tools to develop social competences and contribute to peace in their
+        communities and beyond
+      </p>
+    </header>
+
+    <ul class="work__grid">
+      @for (item of items; track item.title; let i = $index) {
+        <li class="card work__card" [appReveal]="(i % 2) * 90">
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+        </li>
+      }
+    </ul>
+
+    <div class="work__gallery">
+      <figure class="work__photo" appReveal>
+        <img
+          src="assets/images/How We Work Pic 1.jpg"
+          alt="Participants in a non-formal education session under the EU flag"
+          width="1400"
+          height="749"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+      <figure class="work__photo" appReveal="90">
+        <img
+          src="assets/images/How We Work Pic 2.jpg"
+          alt="GYDA youth group performing at a community charity event"
+          width="1400"
+          height="749"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    </div>
+  </div>
+</section>

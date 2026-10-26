@@ -1,0 +1,36 @@
+<section id="team" class="section team" aria-labelledby="team-title">
+  <div class="container">
+    <header class="section-head" appReveal>
+      <h2 id="team-title">Our Team</h2>
+    </header>
+
+    <ul class="team__grid">
+      @for (member of members; track member.name; let i = $index) {
+        <li class="card member" [appReveal]="(i % 2) * 90">
+          <ng-container *ngTemplateOutlet="memberTpl; context: { $implicit: member, size: 64 }" />
+        </li>
+      }
+    </ul>
+
+    <article class="member member--featured" appReveal>
+      <ng-container *ngTemplateOutlet="memberTpl; context: { $implicit: president, size: 96 }" />
+    </article>
+  </div>
+</section>
+
+<ng-template #memberTpl let-member let-size="size">
+  <img
+    class="member__photo"
+    [src]="member.photo"
+    [alt]="'Portrait of ' + member.name"
+    [width]="size"
+    [height]="size"
+    loading="lazy"
+    decoding="async"
+  />
+  <div class="member__info">
+    <h3>{{ member.name }}</h3>
+    <p class="member__role">{{ member.role }}</p>
+    <p class="member__bio">{{ member.bio }}</p>
+  </div>
+</ng-template>

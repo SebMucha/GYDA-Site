@@ -1,0 +1,83 @@
+<section id="projects" class="section projects" aria-labelledby="projects-title">
+  <div class="container">
+    <header class="section-head projects__head" appReveal>
+      <h2 id="projects-title">GYDA projects</h2>
+      <p class="projects__eyebrow">Capacity building in the field of youth</p>
+    </header>
+
+    <ul class="flagship">
+      @for (project of flagship; track project.acronym; let i = $index) {
+        <li class="card flagship__card" [appReveal]="i * 90">
+          <div class="flagship__media">
+            @if (project.image) {
+              <img
+                [src]="project.image"
+                [alt]="project.acronym + ' project participants'"
+                width="1053"
+                height="594"
+                loading="lazy"
+                decoding="async"
+              />
+            } @else if (project.banner) {
+              <div class="flagship__banner">
+                <span class="flagship__banner-title">{{ project.banner.title }}</span>
+                <span class="flagship__banner-sub">{{ project.banner.subtitle }}</span>
+              </div>
+            }
+          </div>
+
+          <div class="flagship__body">
+            <span class="pill">{{ project.tag }}</span>
+            <span class="flagship__acronym">{{ project.acronym }}</span>
+            <h3>{{ project.title }}</h3>
+            <p class="flagship__number">Project no. {{ project.number }}</p>
+            <p class="flagship__desc">{{ project.description }}</p>
+
+            <div class="flagship__action">
+              @if (project.url) {
+                <a
+                  class="btn btn--dark btn--sm"
+                  [href]="project.url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  [attr.aria-label]="'Learn more about ' + project.acronym + ' (opens in a new tab)'"
+                >Learn more</a>
+              } @else {
+                <span class="btn btn--sm flagship__soon" aria-disabled="true">Coming soon</span>
+              }
+            </div>
+          </div>
+        </li>
+      }
+    </ul>
+
+    <div class="exchanges">
+      <header class="exchanges__head" appReveal>
+        <h3>Youth Exchanges</h3>
+      </header>
+
+      <ul class="exchanges__grid">
+        @for (item of exchanges; track item.title; let i = $index) {
+          <li class="card exchange" [appReveal]="(i % 3) * 90">
+            <div class="exchange__media">
+              <img
+                [src]="item.image"
+                [alt]="item.title + ' youth exchange participants'"
+                width="939"
+                height="594"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="exchange__body">
+              <span class="pill exchange__pill">Youth Exchange</span>
+              <h4>{{ item.title }}</h4>
+              <p class="exchange__location">{{ item.location }}</p>
+              <p class="exchange__desc">{{ item.description }}</p>
+            </div>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

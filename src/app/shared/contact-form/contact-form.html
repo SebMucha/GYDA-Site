@@ -1,0 +1,78 @@
+@if (state() === 'sent') {
+  <div class="success" role="status">
+    <span class="success__icon" aria-hidden="true">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+    </span>
+    <h3>Thank you!</h3>
+    <p>Your message has been sent. We’ll get back to you as soon as possible.</p>
+    <button class="btn btn--light btn--sm" type="button" (click)="reset()">Send another message</button>
+  </div>
+} @else {
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+    <div class="field field--name">
+      <label [for]="idPrefix() + '-name'">Name</label>
+      <input
+        [id]="idPrefix() + '-name'"
+        type="text"
+        formControlName="name"
+        placeholder="Your name"
+        autocomplete="name"
+        [attr.aria-invalid]="showError('name')"
+        [attr.aria-describedby]="idPrefix() + '-name-error'"
+      />
+      @if (showError('name')) {
+        <span [id]="idPrefix() + '-name-error'" class="field__error">Please enter your name.</span>
+      }
+    </div>
+
+    <div class="field field--email">
+      <label [for]="idPrefix() + '-email'">Your Email</label>
+      <input
+        [id]="idPrefix() + '-email'"
+        type="email"
+        formControlName="email"
+        placeholder="Your email address"
+        autocomplete="email"
+        [attr.aria-invalid]="showError('email')"
+        [attr.aria-describedby]="idPrefix() + '-email-error'"
+      />
+      @if (showError('email')) {
+        <span [id]="idPrefix() + '-email-error'" class="field__error">Please enter a valid email address.</span>
+      }
+    </div>
+
+    <div class="field field--message">
+      <label [for]="idPrefix() + '-message'">Message</label>
+      <textarea
+        [id]="idPrefix() + '-message'"
+        [rows]="variant() === 'compact' ? 3 : 7"
+        formControlName="message"
+        placeholder="Enter your message"
+        [attr.aria-invalid]="showError('message')"
+        [attr.aria-describedby]="idPrefix() + '-message-error'"
+      ></textarea>
+      @if (showError('message')) {
+        <span [id]="idPrefix() + '-message-error'" class="field__error">Please write a message of at least 10 characters.</span>
+      }
+    </div>
+
+    <input class="honeypot" type="checkbox" formControlName="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+    @if (state() === 'error') {
+      <p class="form__alert" role="alert">
+        Sorry, your message couldn’t be sent. Please try again, or email us at
+        <a [href]="'mailto:' + email">{{ email }}</a>.
+      </p>
+    }
+
+    <div class="form__actions">
+      <button class="btn btn--light btn--sm" type="submit" [disabled]="state() === 'sending'">
+        @if (state() === 'sending') {
+          <span class="spinner" aria-hidden="true"></span> Sending…
+        } @else {
+          {{ submitLabel() }}
+        }
+      </button>
+    </div>
+  </form>
+}

@@ -1,0 +1,124 @@
+:host {
+  display: block;
+}
+
+.mission {
+  padding-block: 64px 72px;
+
+  .section-head {
+    margin-bottom: 36px;
+  }
+}
+
+.mission__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mission__card {
+  padding: 22px 20px 26px;
+  border: 0;
+
+  h3 {
+    margin-top: 16px;
+    font-size: 1.125rem;
+  }
+
+  p {
+    margin-top: 8px;
+    font-size: 0.875rem;
+    line-height: 1.55;
+  }
+}
+
+.mission__icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--color-lavender);
+  color: var(--color-indigo);
+  transition:
+    background-color 0.25s var(--ease),
+    color 0.25s var(--ease);
+}
+
+.mission__card:hover .mission__icon {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.founded {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: clamp(560px, 52vw, 760px);
+  padding-block: 120px;
+  overflow: hidden;
+  color: var(--color-white);
+  isolation: isolate;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, rgb(30 28 66 / 0.82) 0%, rgb(40 38 84 / 0.66) 55%, rgb(40 38 84 / 0.45) 100%);
+  }
+}
+
+.founded__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.founded__content {
+  max-width: var(--container);
+}
+
+.founded__statement {
+  max-width: 680px;
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.founded__text {
+  max-width: 640px;
+  margin-top: 48px;
+  font-family: var(--font-serif);
+  font-size: clamp(1rem, 1.6vw, 1.1875rem);
+  font-weight: 500;
+  line-height: 1.55;
+}
+
+@media (max-width: 960px) {
+  .mission__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .mission__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .founded {
+    min-height: 0;
+    padding-block: 72px;
+  }
+
+  .founded__text {
+    margin-top: 28px;
+  }
+}
