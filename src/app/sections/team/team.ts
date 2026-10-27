@@ -27,12 +27,12 @@ export class Team {
     {
       name: 'Likuna Darchia',
       role: 'Board member and Digital Content Creator',
-      bio: 'Likuna is studying Journalism and Mass Communications at Grigol Robakidze University and has experience in media, communication and content creation. She has also taken part in a university talk show and is especially interested in digital and social media storytelling. Her academic background, paired with her interest in visual and social media content, allows her to approach communication in a fresh and dynamic way.',
+      bio: 'Likuna holds a Bachleor of Journalism and Mass Communications from Grigol Robakidze University and has experience in media, communication and content creation. She has also taken part in a university talk show and is especially interested in digital and social media storytelling. Her academic background, paired with her interest in visual and social media content, allows her to approach communication in a fresh and dynamic way.',
       photo: 'assets/images/Likuna darchia.jpg',
     },
     {
       name: 'Luka Kervalidze',
-      role: 'Youth Worker',
+      role: 'Board Member and Project Coordinator',
       bio: 'An active youth worker deeply involved in Erasmus+ projects, with a particular interest in youth empowerment. As an ambassador for Kutaisi International University in 2020–2021, he was focusing on event planning, project coordination and student engagement. Currently, he is pursuing a bachelor’s degree in Law at Ilia State University, balancing his academic pursuits with a strong interest in youth work and international cooperation.',
       photo: 'assets/images/Luka Kervalidze.jpg',
     },

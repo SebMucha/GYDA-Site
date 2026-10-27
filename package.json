@@ -5,6 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:pages": "ng build --base-href /GYDA-Site/",
+    "deploy": "npm run build:pages && npx angular-cli-ghpages --dir=dist/angular-figma-app/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:angular-figma-app": "node dist/angular-figma-app/server/server.mjs"
